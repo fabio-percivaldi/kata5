@@ -1,5 +1,12 @@
 'use strict'
 
+function sumSquareNumber(number) {
+  let sum = 0
+  for (let i = 0; i < number; i++) {
+    sum += i * i
+  }
+  return sum
+}
 function isPrimeNumber(number) {
   let isPrime = true
   if (number === 0 || number === 1) {
@@ -34,4 +41,5 @@ function nthPrime(number) {
 module.exports = {
   isPrimeNumber,
   nthPrime,
+  sumSquareNumber,
 }
