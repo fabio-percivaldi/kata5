@@ -54,10 +54,25 @@ function sumSquareEvenPrime(number) {
   return firstNPrimes.reduce((prev, curr) => prev + (curr * curr), 0)
 }
 
+function differenceOfStuff(number) {
+  const sumOfSquareOfFirstNPrimes = sumSquarePrime(number)
+
+  const firstNPrimes = []
+  for (let i = 1; i <= number; i++) {
+    firstNPrimes.push(nthPrime(i))
+  }
+
+  const sumOfFirstNPrimes = firstNPrimes.reduce((prev, curr) => prev + curr, 0)
+  const squareOfSumOfFirstNPrimes = sumOfFirstNPrimes * sumOfFirstNPrimes
+
+  return sumOfSquareOfFirstNPrimes - squareOfSumOfFirstNPrimes
+}
+
 module.exports = {
   isPrimeNumber,
   nthPrime,
   sumSquareNumber,
   sumSquarePrime,
   sumSquareEvenPrime,
+  differenceOfStuff,
 }
