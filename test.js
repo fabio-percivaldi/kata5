@@ -3,7 +3,7 @@
 'use strict'
 /* eslint-disable no-shadow */
 const tap = require('tap')
-const { isPrimeNumber, nthPrime, sumSquareNumber, sumSquarePrime, sumSquareEvenPrime, differenceOfStuff } = require('./index')
+const { isPrimeNumber, nthPrime, sumSquareNumber, sumSquarePrime, sumSquareEvenPrime, differenceOfStuff, roba } = require('./index')
 
 
 tap.test('isPrime', async t => {
@@ -230,6 +230,39 @@ tap.test('differenceOfStuff', async t => {
   tests.forEach(test => {
     t.test(`${test.input}`, async assert => {
       assert.strictSame(differenceOfStuff(test.input), test.expected)
+      assert.end()
+    })
+  })
+  t.end()
+})
+
+tap.test('roba', async t => {
+  const tests = [
+    {
+      input: 0,
+      expected: 0,
+    },
+    {
+      input: 1,
+      expected: 3,
+    },
+    {
+      input: 2,
+      expected: 8,
+    },
+    {
+      input: 3,
+      expected: 19,
+    },
+    {
+      input: 4,
+      expected: 36,
+    },
+  ]
+
+  tests.forEach(test => {
+    t.test(`${test.input}`, async assert => {
+      assert.strictSame(roba(test.input), test.expected)
       assert.end()
     })
   })

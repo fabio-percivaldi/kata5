@@ -65,6 +65,12 @@ function differenceOfStuff(number) {
   return sumOfSquareOfFirstNPrimes - squareOfSumOfFirstNPrimes
 }
 
+function roba(number) {
+  return nthPrimes(number)
+    .map(nthPrime)
+    .reduce((prev, curr) => prev + curr, 0)
+}
+
 module.exports = {
   isPrimeNumber,
   nthPrime,
@@ -72,4 +78,5 @@ module.exports = {
   sumSquarePrime,
   sumSquareEvenPrime,
   differenceOfStuff,
+  roba
 }
