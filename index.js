@@ -13,4 +13,25 @@ function isPrimeNumber(number) {
   }
   return isPrime
 }
-module.exports = isPrimeNumber
+
+function nthPrime(number) {
+  let currentPrime = 2
+  let currentPrimeNum = 1
+
+  let currentNumber = 3
+
+  while (currentPrimeNum < number) {
+    if (isPrimeNumber(currentNumber)) {
+      currentPrime = currentNumber
+      currentPrimeNum += 1
+    }
+    currentNumber += 1
+  }
+
+  return currentPrime
+}
+
+module.exports = {
+  isPrimeNumber,
+  nthPrime,
+}
