@@ -39,12 +39,19 @@ function nthPrime(number) {
 }
 
 function sumSquarePrime(number) {
-  let firstNPrimes = []
+  const firstNPrimes = []
   for (let i = 1; i <= number; i++) {
     firstNPrimes.push(nthPrime(i))
   }
-  console.log(firstNPrimes)
-  return firstNPrimes.reduce((prev, curr) => prev + curr*curr, 0)
+  return firstNPrimes.reduce((prev, curr) => prev + (curr * curr), 0)
+}
+
+function sumSquareEvenPrime(number) {
+  const firstNPrimes = []
+  for (let i = 1; i <= number + (number - 1); i += 2) {
+    firstNPrimes.push(nthPrime(i))
+  }
+  return firstNPrimes.reduce((prev, curr) => prev + (curr * curr), 0)
 }
 
 module.exports = {
@@ -52,4 +59,5 @@ module.exports = {
   nthPrime,
   sumSquareNumber,
   sumSquarePrime,
+  sumSquareEvenPrime,
 }
