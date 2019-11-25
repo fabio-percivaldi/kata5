@@ -21,25 +21,19 @@ function isPrimeNumber(number) {
   return isPrime
 }
 
-function returnFirstNthPrimes(number) {
-  const firstNPrimes = []
-  for (let i = 1; i <= number; i++) {
-    firstNPrimes.push(nthPrime(i))
-  }
-  return firstNPrimes
-}
-// function nthPrime(number) {
-//   return nthPrimes(number)[number]
-// }
 function nthPrime(number) {
-  let currentPrime = 2
-  let currentPrimeNum = 1
+  return nthPrimes(number)[number - 1]
+}
 
-  let currentNumber = 3
+function nthPrimes(number) {
+  const currentPrime = []
+  let currentPrimeNum = 0
+
+  let currentNumber = 2
 
   while (currentPrimeNum < number) {
     if (isPrimeNumber(currentNumber)) {
-      currentPrime = currentNumber
+      currentPrime.push(currentNumber)
       currentPrimeNum += 1
     }
     currentNumber += 1
@@ -49,7 +43,7 @@ function nthPrime(number) {
 }
 
 function sumSquarePrime(number) {
-  return returnFirstNthPrimes(number)
+  return nthPrimes(number)
     .reduce((prev, curr) => prev + (curr * curr), 0)
 }
 
@@ -63,7 +57,7 @@ function sumSquareEvenPrime(number) {
 
 function differenceOfStuff(number) {
   const sumOfSquareOfFirstNPrimes = sumSquarePrime(number)
-  const firstNPrimes = returnFirstNthPrimes(number)
+  const firstNPrimes = nthPrimes(number)
 
   const sumOfFirstNPrimes = firstNPrimes.reduce((prev, curr) => prev + curr, 0)
   const squareOfSumOfFirstNPrimes = sumOfFirstNPrimes * sumOfFirstNPrimes
