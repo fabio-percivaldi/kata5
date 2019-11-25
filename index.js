@@ -38,8 +38,18 @@ function nthPrime(number) {
   return currentPrime
 }
 
+function sumSquarePrime(number) {
+  let firstNPrimes = []
+  for (let i = 1; i <= number; i++) {
+    firstNPrimes.push(nthPrime(i))
+  }
+  console.log(firstNPrimes)
+  return firstNPrimes.reduce((prev, curr) => prev + curr*curr, 0)
+}
+
 module.exports = {
   isPrimeNumber,
   nthPrime,
   sumSquareNumber,
+  sumSquarePrime,
 }
